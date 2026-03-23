@@ -101,7 +101,8 @@ service cloud.firestore {
              data.category in ['casa', 'quarto', 'terreno', 'escritorio'] &&
              data.city is string && data.city.size() > 0 && data.city.size() < 100 &&
              (!('images' in data) || data.images is list) &&
-             (!('status' in data) || data.status in ['active', 'sold', 'rented', 'pending']);
+             (!('status' in data) || data.status in ['active', 'sold', 'rented', 'pending']) &&
+             (!('isBoosted' in data) || data.isBoosted is bool);
     }
 
     function isValidBooking(data) {

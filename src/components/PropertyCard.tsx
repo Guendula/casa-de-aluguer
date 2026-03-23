@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Bed, Bath, Square, Heart, Star } from 'lucide-react';
+import { MapPin, Bed, Bath, Square, Heart, Star, TrendingUp } from 'lucide-react';
 import { Property } from '../types';
 import { formatCurrency, cn } from '../lib/utils';
 import { useState } from 'react';
@@ -54,6 +54,11 @@ export default function PropertyCard({ property, isFavorite = false, onToggleFav
           {property.isFeatured && (
             <span className="bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center shadow-sm">
               <Star className="h-3 w-3 mr-1 fill-current" /> Destaque
+            </span>
+          )}
+          {property.isBoosted && (
+            <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center shadow-sm">
+              <TrendingUp className="h-3 w-3 mr-1" /> Impulsionado
             </span>
           )}
         </div>

@@ -40,6 +40,7 @@
         "features": { "type": "array", "items": { "type": "string" }, "description": "List of property features" },
         "status": { "type": "string", "enum": ["active", "sold", "rented", "pending"], "description": "Listing status" },
         "isFeatured": { "type": "boolean", "description": "Whether the listing is featured" },
+        "isBoosted": { "type": "boolean", "description": "Whether the listing is boosted/highlighted" },
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" }
       },

@@ -48,6 +48,9 @@ export default function SearchResults() {
         const querySnap = await getDocs(q);
         let results = querySnap.docs.map(doc => ({ id: doc.id, ...doc.data() } as Property));
 
+        // Sort by boosted first
+        results.sort((a, b) => (b.isBoosted ? 1 : 0) - (a.isBoosted ? 1 : 0));
+
         // Client-side filtering for price (to avoid complex indexes)
         if (minPrice) results = results.filter(p => p.price >= Number(minPrice));
         if (maxPrice) results = results.filter(p => p.price <= Number(maxPrice));

@@ -32,6 +32,7 @@ export interface Property {
   features?: string[];
   status?: PropertyStatus;
   isFeatured?: boolean;
+  isBoosted?: boolean;
   createdAt?: any;
   updatedAt?: any;
 }

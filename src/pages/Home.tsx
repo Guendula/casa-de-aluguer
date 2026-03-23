@@ -36,7 +36,10 @@ export default function Home() {
           limit(4)
         );
         const featuredSnap = await getDocs(featuredQuery);
-        setFeaturedProperties(featuredSnap.docs.map(doc => ({ id: doc.id, ...doc.data() } as Property)));
+        setFeaturedProperties(featuredSnap.docs
+          .map(doc => ({ id: doc.id, ...doc.data() } as Property))
+          .sort((a, b) => (b.isBoosted ? 1 : 0) - (a.isBoosted ? 1 : 0))
+        );
 
         // Fetch recent
         const recentQuery = query(
@@ -46,7 +49,10 @@ export default function Home() {
           limit(8)
         );
         const recentSnap = await getDocs(recentQuery);
-        setRecentProperties(recentSnap.docs.map(doc => ({ id: doc.id, ...doc.data() } as Property)));
+        setRecentProperties(recentSnap.docs
+          .map(doc => ({ id: doc.id, ...doc.data() } as Property))
+          .sort((a, b) => (b.isBoosted ? 1 : 0) - (a.isBoosted ? 1 : 0))
+        );
       } catch (error) {
         console.error('Error fetching properties:', error);
       } finally {
