@@ -1,0 +1,5 @@
+{
+  "name": "Imobiliária Moçambique",
+  "description": "Plataforma digital completa de imobiliária inspirada na combinação do OLX e Airbnb, adaptada ao mercado de Moçambique.",
+  "requestFramePermissions": ["geolocation"]
+}
